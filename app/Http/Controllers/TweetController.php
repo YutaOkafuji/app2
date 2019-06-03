@@ -23,4 +23,8 @@ class TweetController extends Controller
         $tweet->save();
         return redirect('/');
     }
+
+    public function delete(){
+        
+    }
 }
