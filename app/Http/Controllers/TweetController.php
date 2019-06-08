@@ -16,6 +16,7 @@ class TweetController extends Controller
 
     public function create(TweetRequest $request){
         $tweet = new Tweet;
+        $tweet->id = $request->id;
         $tweet->title = $request->title;
         $image = $request->image_url->store('public/images');
         $tweet->image_url = str_replace('public/', 'storage/', $image);
@@ -24,7 +25,11 @@ class TweetController extends Controller
         return redirect('/');
     }
 
-    public function delete(){
+    public function destroy($id){
         
+        $tweet = Tweet::findOrFail($id);
+        $tweet->delete();
+        return redirect('/');
+
     }
 }

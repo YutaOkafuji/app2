@@ -13,4 +13,5 @@
 
 Route::get('/', 'TweetController@index');
 Route::post('/create', 'TweetController@create');
+Route::delete('/destroy/{id}', 'TweetController@destroy');
 
